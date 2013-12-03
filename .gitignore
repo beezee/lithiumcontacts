@@ -1,4 +1,4 @@
 .DS_Store
-app/libraries/*
-app/resources/tmp/*
+resources/tmp/*
+config/bootstrap/connections.php
 .*.sw[op]
