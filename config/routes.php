@@ -41,12 +41,18 @@ if ($locales = Environment::get('locales')) {
  * @see app\controllers\PagesController
  */
 Router::connect('/', 'Users::login');
+Router::connect('/signup', 'Users::add');
+Router::connect('/logout', 'Users::logout');
+Router::connect('/dashboard', 'Contacts::dashboard');
+Router::connect('/contacts/edit/{:id}', 'Contacts::edit');
+Router::connect('/contacts/delete', 'Contacts::delete');
+Router::connect('/contacts/add', 'Contacts::add');
 
 /**
  * Connect the rest of `PagesController`'s URLs. This will route URLs like `/pages/about` to
  * `PagesController`, rendering `/views/pages/about.html.php` as a static page.
  */
-Router::connect('/pages/{:args}', 'Pages::view');
+//Router::connect('/pages/{:args}', 'Pages::view');
 
 /**
  * Add the testing routes. These routes are only connected in non-production environments, and allow
@@ -70,8 +76,9 @@ if (!Environment::is('production')) {
  * is an integer, uncomment the routes below to enable URLs like `/posts/edit/1138`,
  * `/posts/view/1138.json`, etc.
  */
- Router::connect('/{:controller}/{:action}/{:id:\d+}.{:type}', array('id' => null));
- Router::connect('/{:controller}/{:action}/{:id:\d+}');
+// Router::connect('/{:controller}/{:action}/{:id:\d+}.{:type}', array('id' => null));
+// Router::connect('/{:controller}/{:action}/{:id:\d+}');
+
 
 /**
  * If you're using a document-oriented database, such as CouchDB or MongoDB, or another type of
@@ -92,6 +99,6 @@ if (!Environment::is('production')) {
  * In almost all cases, custom routes should be added above this one, since route-matching works in
  * a top-down fashion.
  */
-Router::connect('/{:controller}/{:action}/{:args}');
+//Router::connect('/{:controller}/{:action}/{:args}');
 
 ?>

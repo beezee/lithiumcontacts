@@ -20,7 +20,7 @@
             <div style="position:relative;">
                 <div class="pull-left contact-name" data-id="<?=$contact->id; ?>">
                 <?=$this->html->link($contact->name, 
-                    array('Contacts::edit', 'args' => array($contact->id))); ?>
+                    array('Contacts::edit', 'id' => $contact->id)); ?>
                 </div>
                 <?=$this->form->create($contact, 
                             array('url' => array('Contacts::delete'),
