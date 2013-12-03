@@ -25,6 +25,7 @@ ini_set('display_errors', 1);
  * @see lithium\util\collection\Filters
  */
 
+
 /**
  * The libraries file contains the loading instructions for all plugins, frameworks and other class
  * libraries used in the application, including the Lithium core, and the application itself. These
@@ -62,7 +63,9 @@ require __DIR__ . '/bootstrap/connections.php';
  * This file contains configuration for session (and/or cookie) storage, and user or web service
  * authentication.
  */
-// require __DIR__ . '/bootstrap/session.php';
+ require __DIR__ . '/bootstrap/session.php';
+
+ require __DIR__ . '/bootstrap/auth.php';
 
 /**
  * This file contains your application's globalization rules, including inflections,

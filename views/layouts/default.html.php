@@ -10,9 +10,8 @@
 <html>
 <head>
 	<?php echo $this->html->charset();?>
-	<title>Application &gt; <?php echo $this->title(); ?></title>
+	<title>Lithium Contacts</title>
 	<?php echo $this->html->style(array('bootstrap.min', 'lithified')); ?>
-	<?php echo $this->scripts(); ?>
 	<?php echo $this->styles(); ?>
 	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
 </head>
@@ -21,20 +20,13 @@
 
 		<div class="masthead">
 			<ul class="nav nav-pills pull-right">
+            <?php if (app\models\User::current()): ?>
 				<li>
-					<a href="http://lithify.me/docs/manual/quickstart">Quickstart</a>
+                    <?=$this->html->link('Logout', array('Users::logout')); ?>
 				</li>
-				<li>
-					<a href="http://lithify.me/docs/manual">Manual</a>
-				</li>
-				<li>
-					<a href="http://lithify.me/docs/lithium">API</a>
-				</li>
-				<li>
-					<a href="http://lithify.me/">More</a>
-				</li>
+            <?php endif; ?>
 			</ul>
-			<a href="http://lithify.me/"><h3>&#10177;</h3></a>
+            <h3>Lithium Contacts</h3>
 		</div>
 
 		<hr>
@@ -50,5 +42,7 @@
 		</div>
 
 	</div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<?php echo $this->scripts(); ?>
 </body>
 </html>

@@ -8,6 +8,7 @@ class CreateContactsTable extends Ruckusing_BaseMigration {
                                          "auto_increment"   => true, 
                                          "unsigned"         => true, 
                                          "null"             => false));
+    $t->column("user_id", "integer", array("null" => false));
     $t->column("name", "string", array("limit" => 128,
                                             "null" => false));
     $t->column("street_address", "string", array("limit" => 255,
@@ -23,6 +24,7 @@ class CreateContactsTable extends Ruckusing_BaseMigration {
     $t->finish();
 
     $this->add_index("contacts", "name");
+    $this->add_index("contacts", "user_id");
     $this->add_index("contacts", "street_address");
     $this->add_index("contacts", "city");
     $this->add_index("contacts", "state");
