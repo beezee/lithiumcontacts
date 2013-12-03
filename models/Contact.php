@@ -94,10 +94,12 @@ class Contact extends \lithium\data\Model {
                 'message' => 'State must be in the list'),
         ),
         'zip' => array(
-            array('postalCode')
+            array('postalCode',
+                'message' => 'Zip must be a valid postal code')
         ),
         'phone' => array(
-            array('phone')
+            array('phone',
+                'message' => 'Phone # must be valid')
         ),
     );
 

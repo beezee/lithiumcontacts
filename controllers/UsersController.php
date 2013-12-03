@@ -12,7 +12,8 @@ class UsersController extends \lithium\action\Controller {
 		$user = User::create();
 
 		if (($this->request->data) && $user->save($this->request->data)) {
-			return $this->redirect(array('Users::view', 'args' => array($user->id)));
+            Auth::set('member', array('id' => $user->id));
+			return $this->redirect(array('Contacts::dashboard'));
 		}
 		return compact('user');
 	}
@@ -20,7 +21,7 @@ class UsersController extends \lithium\action\Controller {
     public function login() {
         $authFailed = false;
         if (Auth::check('member', $this->request)){
-            return $this->redirect('/contacts/dashboard');
+			return $this->redirect(array('Contacts::dashboard'));
         }
         if ($this->request->data){
             $authFailed = true;
