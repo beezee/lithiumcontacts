@@ -38,7 +38,7 @@
 		<hr>
 
 		<div class="footer">
-			<p>&copy; Union Of RAD 2013</p>
+			<p>&copy; Brian Zeligson 2013</p>
 		</div>
 
 	</div>
